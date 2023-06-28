@@ -13,9 +13,13 @@ const RouterPage = () => {
         <Route element={<PrivateRoute />}>
           <Route index element={<Dashboard />}/>
         </Route>
+        <Route element={<PrivateRoute />}>
+          <Route path='/dashboard' element={<Dashboard />}/>
+        </Route>
       </Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   )
 }
+
 export default RouterPage

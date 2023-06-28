@@ -1,4 +1,13 @@
+import { useContext } from 'react'
+import { useAuth } from '../../uses/useAuth/useAuth'
+import { AuthContext } from '../../providers/AuthProvider'
+
 function Dashboard() {
+
+  const { token } = useContext(AuthContext)
+  const showLog = () => {
+    console.log(token)
+  }
 
   return (
     <>
@@ -20,6 +29,7 @@ function Dashboard() {
       <div className='content'>
         <div className="container-fluid">
           Dashboard
+          <button type='button' className="btn btn-dark btn-block" onClick={showLog}>Log</button>
         </div>
       </div>
     </>

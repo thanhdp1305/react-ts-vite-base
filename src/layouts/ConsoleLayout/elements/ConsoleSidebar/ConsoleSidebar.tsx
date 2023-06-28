@@ -4,7 +4,6 @@ function ConsoleSidebar() {
       <a href="index3.html" className="brand-link text-center">
         <span className="brand-text font-weight-light">AdminLTE 3</span>
       </a>
-
       <div className="sidebar">
         <nav className="mt-2">
           <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -33,7 +32,6 @@ function ConsoleSidebar() {
             </li>
           </ul>
         </nav>
-
       </div>
     </aside>
   )

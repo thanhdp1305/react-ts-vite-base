@@ -1,20 +1,27 @@
 import React from 'react'
 import GuestLayout from '../../layouts/GuestLayout/GuestLayout'
+import { useNavigate } from 'react-router'
+import { useAuth } from '../../uses/useAuth/useAuth'
 
-export default class SignIn extends React.Component<ICommonProps> {
-
-  componentDidMount() {
+class SignInContent extends React.Component<any> {
+  constructor(props: any) {
+    super(props)
     this.renderClass()
   }
 
-  renderClass() {
+  componentDidMount = () => {
+    //
+  }
+
+  renderClass = () => {
     document.body.className = ''
     document.body.classList.add('login-page')
   }
 
-  goToDashboard() {
-    // this.props.history.push('/')
-    console.log(this.props)
+  goToDashboard = () => {
+    this.props.auth.login()
+    this.props.auth.logout()
+    this.props.navigate('/')
   }
 
   render(): React.ReactNode {
@@ -54,4 +61,14 @@ export default class SignIn extends React.Component<ICommonProps> {
     )
   }
 }
+
+function SignIn() {
+  const navigate = useNavigate()
+  const auth = useAuth()
+  return (
+    <SignInContent navigate={ navigate } auth={ auth } />
+  )
+}
+
+export default SignIn
 
