@@ -1,11 +1,7 @@
 import React from 'react'
 import GuestLayout from '../../layouts/GuestLayout/GuestLayout'
 
-class SignIn extends React.Component {
-  constructor(props: any) {
-    super(props)
-    // Don't do this!
-  }
+export default class SignIn extends React.Component<ICommonProps> {
 
   componentWillMount() {
     //
@@ -18,6 +14,11 @@ class SignIn extends React.Component {
   renderClass() {
     document.body.className = ''
     document.body.classList.add('login-page')
+  }
+
+  goToDashboard() {
+    // this.props.history.push('/')
+    console.log(this.props)
   }
 
   render(): React.ReactNode {
@@ -46,7 +47,7 @@ class SignIn extends React.Component {
                 </div>
                 <div className="row">
                   <div className="col-12">
-                    <button className="btn btn-dark btn-block">Sign In</button>
+                    <button type='button' className="btn btn-dark btn-block" onClick={this.goToDashboard}>Sign In</button>
                   </div>
                 </div>
               </form>
@@ -58,4 +59,3 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn
