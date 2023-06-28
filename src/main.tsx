@@ -2,11 +2,11 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 import serviceWorker from './serviceWorker'
-import { BrowserRouter } from 'react-router-dom'
+import React from 'react'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <BrowserRouter>
+  <React.StrictMode>
     <App />
-  </BrowserRouter>,
+  </React.StrictMode>,
 )
 serviceWorker()

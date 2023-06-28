@@ -51,7 +51,6 @@ module.exports = {
     '@typescript-eslint/no-empty-interface': 0,
     '@typescript-eslint/class-name-casing': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
-    // '@typescript-eslint/space-before-function-paren': [2],
     '@typescript-eslint/keyword-spacing': 0,
     '@typescript-eslint/comma-spacing': 2,
     '@typescript-eslint/type-annotation-spacing': 2,

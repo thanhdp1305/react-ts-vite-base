@@ -1,15 +1,11 @@
 import React from 'react'
 import ConsoleHeader from './elements/ConsoleHeader/ConsoleHeader'
 import ConsoleSidebar from './elements/ConsoleSidebar/ConsoleSidebar'
+import { Outlet } from 'react-router'
 
 class ConsoleLayout extends React.Component<any, any> {
   constructor(props: any | Readonly<{}>) {
     super(props)
-    // Don't do this!
-  }
-
-  componentWillMount() {
-    //
   }
 
   componentDidMount() {
@@ -27,7 +23,7 @@ class ConsoleLayout extends React.Component<any, any> {
         <ConsoleHeader />
         <ConsoleSidebar />
         <div className='content-wrapper'>
-          { this.props.children }
+          <Outlet />
         </div>
       </>
     )

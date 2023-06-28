@@ -3,10 +3,6 @@ import GuestLayout from '../../layouts/GuestLayout/GuestLayout'
 
 export default class SignIn extends React.Component<ICommonProps> {
 
-  componentWillMount() {
-    //
-  }
-
   componentDidMount() {
     this.renderClass()
   }

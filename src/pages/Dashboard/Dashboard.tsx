@@ -1,9 +1,7 @@
-import ConsoleLayout from '../../layouts/ConsoleLayout/ConsoleLayout'
-
-function Dashboard(props: any) {
+function Dashboard() {
 
   return (
-    <ConsoleLayout>
+    <>
       <div className='content-header'>
         <div className="container-fluid">
           <div className="row mb-2">
@@ -24,7 +22,7 @@ function Dashboard(props: any) {
           Dashboard
         </div>
       </div>
-    </ConsoleLayout>
+    </>
   )
 }
 
