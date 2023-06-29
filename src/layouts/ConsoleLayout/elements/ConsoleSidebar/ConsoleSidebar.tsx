@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom'
 
 function ConsoleSidebar() {
+  const arr = [
+    'Menu From code 1',
+    'Menu From code 2'
+  ]
   return (
     <aside className="main-sidebar sidebar-light-primary border-right">
       <a href="index3.html" className="brand-link text-center">
@@ -23,7 +27,18 @@ function ConsoleSidebar() {
                 </p>
               </Link>
             </li>
-            <li className="nav-item">
+            {
+              arr.map((value, index) => (
+                <li className="nav-item" key={index}>
+                  <Link to={'/'} className="nav-link">
+                    <p>
+                      {value}
+                    </p>
+                  </Link>
+                </li>
+              ))
+            }
+            {/* <li className="nav-item">
               <a href="#" className="nav-link">
                 <p>
                   Parent Menu
@@ -44,7 +59,7 @@ function ConsoleSidebar() {
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> */}
           </ul>
         </nav>
       </div>
