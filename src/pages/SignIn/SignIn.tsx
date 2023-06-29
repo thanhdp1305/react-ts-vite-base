@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 import GuestLayout from '../../layouts/GuestLayout/GuestLayout'
-import { useNavigate } from 'react-router'
 import { useAuth } from '../../hooks/useAuth'
 import { valiator } from '../../utils/validator'
 
 function SignIn() {
-  const navigate = useNavigate()
   const auth = useAuth()
   const [firstRender, setFirstRender] = useState(false)
   const [form, setForm] = useState({
@@ -80,7 +78,17 @@ function SignIn() {
     auth.login({
       username: form.email
     })
-    navigate('/')
+    requestData()
+  }
+
+  const requestData = () => {
+    auth.getData({
+      callback: {
+        onSuccess: (res: any) => {
+          console.log(res)
+        } 
+      }
+    })
   }
 
   return (

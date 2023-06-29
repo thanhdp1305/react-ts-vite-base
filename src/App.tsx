@@ -4,11 +4,9 @@ import RouterPage from './routes'
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <RouterPage />
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <RouterPage />
+    </BrowserRouter>
   )
 }
 

@@ -1,5 +1,5 @@
 declare namespace App {
-  export type Callback = {
+  export interface Callback {
     onSuccess?: (...args: any) => void;
     onFailure?: (...args: any) => void;
     onFinish?: (...args: any) => void;

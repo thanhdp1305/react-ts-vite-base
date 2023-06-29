@@ -8,7 +8,7 @@ function ConsoleSidebar() {
       </a>
       <div className="sidebar">
         <nav className="mt-2">
-          <ul className="nav nav-pills nav-sidebar flex-column">
+          <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <li className="nav-item">
               <Link to={'/'} className="nav-link">
                 <p>
@@ -23,10 +23,32 @@ function ConsoleSidebar() {
                 </p>
               </Link>
             </li>
+            <li className="nav-item">
+              <a href="#" className="nav-link">
+                <p>
+                  Parent Menu
+                  <i className="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul className="nav nav-treeview">
+                <li className="nav-item">
+                  <a href="pages/charts/flot.html" className="nav-link">
+                    <i className="far fa-circle nav-icon"></i>
+                    <p>Sub menu 1</p>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="pages/charts/inline.html" className="nav-link">
+                    <i className="far fa-circle nav-icon"></i>
+                    <p>Sub menu 1</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </nav>
       </div>
-    </aside>
+    </aside >
   )
 }
 

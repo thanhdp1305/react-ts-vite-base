@@ -1,7 +1,7 @@
 import { createContext } from 'react'
-export const AppContext = createContext<any>()
+export const AppContext = createContext<any>({})
 
-export const AppProvider = (props: ICommonProps) => {
+export const AppProvider = (props: any) => {
 
   const store: any = {
   }

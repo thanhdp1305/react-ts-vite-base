@@ -1,11 +1,11 @@
 declare namespace RValidator {
-  interface ValidatorOptions {
+  export interface ValidatorOptions {
     required?: boolean;
     pattern?: RegExp;
     errorsMessage?: ValidateErrorMessage;
   }
   
-  interface ValidateErrorMessage {
+  export interface ValidateErrorMessage {
     required?: string;
     pattern?: string;
   }

@@ -8,7 +8,7 @@ function PrivateRoute(props: any) {
   return (
     logged
       ? <Outlet />
-      : <Navigate to="/sign-in" />
+      : <Navigate to={'/sign-in'} />
   )
 }
 

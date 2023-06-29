@@ -9,12 +9,9 @@ import {
 } from './cache/cookies'
 import { shouldRefreshToken } from './token'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
-import axios from 'axios'
 import { StatusCode } from '../constants/statusCode'
 import { API_URL } from '../constants/envKey'
-// import { API_URL } from '@constants/envKey'
-// import { refreshToken } from '@/api/auth'
-// import { RouterNameEnum } from '@/constants/routeName'
+import axios from 'axios'
 
 const headers: Readonly<Record<string, string | boolean>> = {
   Accept: 'application/json',
@@ -75,7 +72,6 @@ class HttpRequest {
             const userInfo = getUserInfo()
             if (userInfo) {
               revokeUser()
-              // router.push({ name: RouterNameEnum.SignIn })
             }
             break
           }
@@ -109,7 +105,7 @@ class HttpRequest {
 
   handleRefreshToken(callback?: App.Callback): void {
     const oldRefreshToken = getRefreshToken()
-    this.isRefreshing = true
+    // this.isRefreshing = true
     // refreshToken({ refreshToken: oldRefreshToken, email: '' }) // auth.user.email
     //   .then((res: any) => {
     //     const newToken = res.token
@@ -123,7 +119,7 @@ class HttpRequest {
     //   })
     //   .catch(() => {
     //     revokeUser()
-    //     router.push({ name: RouterNameEnum.SignIn })
+    //     // this.navigate('/sign-in')
     //   })
     //   .finally(() => {
     //     this.isRefreshing = false

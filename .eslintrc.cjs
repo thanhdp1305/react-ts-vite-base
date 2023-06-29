@@ -14,11 +14,12 @@ module.exports = {
     'camelcase': 'error',
     'spaced-comment': 'error',
     'quotes': ['error', 'single'],
-    'no-duplicate-imports': 'error',
+    'no-duplicate-imports': 0,
     'no-unused-vars': 0,
     'no-undef': 0,
     '@typescript-eslint/no-unused-vars': 0,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-duplicate-imports': 'off',
   }
 }
