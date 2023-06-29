@@ -17,7 +17,7 @@ const RouterPage = () => {
           <Route path='/dashboard' element={<Dashboard />}/>
         </Route>
       </Route>
-      <Route path="*" element={<ErrorPage />} />
+      <Route path="*" element={<ErrorPage type='404' />} />
     </Routes>
   )
 }

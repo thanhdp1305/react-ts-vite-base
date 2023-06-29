@@ -1,12 +1,16 @@
-import { useContext } from 'react'
-import { useAuth } from '../../uses/useAuth/useAuth'
-import { AuthContext } from '../../providers/AuthProvider'
+import { useState } from 'react'
+import { useAuth } from '../../hooks/useAuth'
 
 function Dashboard() {
+  const auth = useAuth()
+  const [userInfo, setUserInfo] = useState('')
 
-  const { token } = useContext(AuthContext)
-  const showLog = () => {
-    console.log(token)
+  const getUserInfor = () => {
+    setUserInfo(auth.username || '');
+  }
+
+  const signOut = () => {
+    auth.logout()
   }
 
   return (
@@ -17,19 +21,25 @@ function Dashboard() {
             <div className="col-sm-6">
               <h1 className="m-0">Dashboard</h1>
             </div>
-            <div className="col-sm-6">
+            {/* <div className="col-sm-6">
               <ol className="breadcrumb float-sm-right">
                 <li className="breadcrumb-item"><a href="#">Home</a></li>
                 <li className="breadcrumb-item active">Dashboard v1</li>
               </ol>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
       <div className='content'>
         <div className="container-fluid">
-          Dashboard
-          <button type='button' className="btn btn-dark btn-block" onClick={showLog}>Log</button>
+          <button type='button' className="btn btn-dark" onClick={getUserInfor}>Get user information </button>
+          <button type='button' className="btn btn-dark ml-3" onClick={signOut}>Sign out</button>
+          <p className='mt-2 mb-1'>
+            <label>Email: </label> {userInfo}
+          </p>
+          <p>
+            <label>Token: </label> {auth.getToken()}
+          </p>
         </div>
       </div>
     </>

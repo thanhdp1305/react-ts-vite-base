@@ -1,19 +1,19 @@
 import { createContext, useState } from 'react'
-import { AuthContextValue } from '../types/auth'
+import { AuthContextProps } from '../types/auth'
 
-export const AuthContext = createContext<AuthContextValue>({
-  token: ''
+export const AuthContext = createContext<AuthContextProps>({
+  username: ''
 })
 
-export function AuthProvider(props: ICommonProps) {
-  let [token, setToken] = useState('')
+export const AuthProvider = (props: ICommonProps) => {
+  const [username, setUsername] = useState('')
 
-  let ctxValue: any = {
-    token: [token, setToken],
+  const store: any = {
+    username: username,
   }
 
   return (
-    <AuthContext.Provider value={ctxValue}>
+    <AuthContext.Provider value={store}>
       {props?.children}
     </AuthContext.Provider>
   )

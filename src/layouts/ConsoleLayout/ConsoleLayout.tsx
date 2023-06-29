@@ -4,7 +4,7 @@ import ConsoleSidebar from './elements/ConsoleSidebar/ConsoleSidebar'
 import { Outlet } from 'react-router'
 
 class ConsoleLayout extends React.Component<any, any> {
-  constructor(props: any | Readonly<{}>) {
+  constructor(props: any) {
     super(props)
   }
 

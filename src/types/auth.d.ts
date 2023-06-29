@@ -1,3 +1,3 @@
-export interface AuthContextValue {
-  token: string;
+export interface AuthContextProps {
+  username: string;
 }

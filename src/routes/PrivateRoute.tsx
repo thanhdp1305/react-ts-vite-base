@@ -1,7 +1,9 @@
 import { Navigate, Outlet } from 'react-router'
+import { useAuth } from '../hooks/useAuth'
 
 function PrivateRoute(props: any) {
-  const logged = true
+  const auth = useAuth()
+  const logged = auth.isLoggedIn()
 
   return (
     logged
