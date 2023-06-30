@@ -20,13 +20,6 @@ function ConsoleSidebar() {
                 </p>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to={'/404'} className="nav-link">
-                <p>
-                  404 Page
-                </p>
-              </Link>
-            </li>
             {
               arr.map((value, index) => (
                 <li className="nav-item" key={index}>
@@ -38,6 +31,13 @@ function ConsoleSidebar() {
                 </li>
               ))
             }
+            <li className="nav-item">
+              <Link to={'/sample-code'} className="nav-link">
+                <p>
+                  Sample Code
+                </p>
+              </Link>
+            </li>
             {/* <li className="nav-item">
               <a href="#" className="nav-link">
                 <p>

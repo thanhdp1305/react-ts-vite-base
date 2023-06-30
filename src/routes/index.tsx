@@ -4,6 +4,7 @@ import SignIn from '../pages/SignIn/SignIn'
 import Dashboard from '../pages/Dashboard/Dashboard'
 import ConsoleLayout from '../layouts/ConsoleLayout/ConsoleLayout'
 import ErrorPage from '../components/ErrorPage/ErrorPage'
+import SampleCode from '../pages/SampleCode/SampleCode'
 
 const RouterPage = () => {
   return (
@@ -21,6 +22,9 @@ const RouterPage = () => {
         </Route>
         <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />}/>
+        </Route>
+        <Route element={<PrivateRoute />}>
+          <Route path='/sample-code' element={<SampleCode />}/>
         </Route>
       </Route>
       <Route path="*" element={<ErrorPage type='404' />} />
