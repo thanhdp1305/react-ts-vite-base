@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
-import { Button, Modal } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
+import BButton from '../../components/CoreUI/BButton/BButton'
 
 function Dashboard() {
   const auth = useAuth()
@@ -53,15 +54,19 @@ function Dashboard() {
             aria-labelledby="contained-modal-title-vcenter"
             centered
           >
-            <Modal.Header closeButton>
-              <Modal.Title>Modal heading</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-            </Modal.Footer>
+            <div className="modal-header">
+              <h5 className="modal-title">Modal title</h5>
+              <button type="button" className="close" onClick={handleClose}>
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-primary">Save changes</button>
+              <button type="button" className="btn btn-secondary" onClick={handleClose}>Close</button>
+            </div>
           </Modal>
 
           <div className="dropdown">
@@ -74,6 +79,13 @@ function Dashboard() {
               <a className="dropdown-item" href="#">Something else here</a>
             </div>
           </div>
+          
+          <BButton className={'btn btn-primary mt-2'} isLoading={true}>
+            Click Me
+          </BButton>
+          <BButton className={'btn btn-primary mt-2 ml-2'} isLoading={true} disabled={true}>
+            Click Me
+          </BButton>
         </div>
       </div>
     </>

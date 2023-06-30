@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router'
+import { Navigate, Route, Routes } from 'react-router'
 import PrivateRoute from './PrivateRoute'
 import SignIn from '../pages/SignIn/SignIn'
 import Dashboard from '../pages/Dashboard/Dashboard'
@@ -11,7 +11,13 @@ const RouterPage = () => {
       <Route path={'/sign-in'} element={<SignIn/>} />
       <Route path='/' element={<ConsoleLayout/>}>
         <Route element={<PrivateRoute />}>
-          <Route index element={<Dashboard />}/>
+          <Route index Component={
+            () => {
+              return (
+                <Navigate to={'/dashboard'} />
+              )
+            }
+          } />
         </Route>
         <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />}/>
