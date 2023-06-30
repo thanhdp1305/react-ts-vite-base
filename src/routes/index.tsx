@@ -5,11 +5,14 @@ import Dashboard from '../pages/Dashboard/Dashboard'
 import ConsoleLayout from '../layouts/ConsoleLayout/ConsoleLayout'
 import ErrorPage from '../components/ErrorPage/ErrorPage'
 import SampleCode from '../pages/SampleCode/SampleCode'
+import PublicRoute from './PublicRoute'
 
 const RouterPage = () => {
   return (
     <Routes>
-      <Route path={'/sign-in'} element={<SignIn />} />
+      <Route element={<PublicRoute />}>
+        <Route path={'/sign-in'} element={<SignIn />} />
+      </Route>
       <Route path='/' element={<ConsoleLayout />}>
         <Route element={<PrivateRoute />}>
           <Route
