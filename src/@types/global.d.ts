@@ -1,4 +1,3 @@
-
 import { RouteComponentProps } from 'react-router-dom'
 
 declare global {

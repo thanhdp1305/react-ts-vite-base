@@ -8,26 +8,25 @@ import SampleCode from '../pages/SampleCode/SampleCode'
 
 const RouterPage = () => {
   return (
-    <Routes>  
-      <Route path={'/sign-in'} element={<SignIn/>} />
-      <Route path='/' element={<ConsoleLayout/>}>
+    <Routes>
+      <Route path={'/sign-in'} element={<SignIn />} />
+      <Route path='/' element={<ConsoleLayout />}>
         <Route element={<PrivateRoute />}>
-          <Route index Component={
-            () => {
-              return (
-                <Navigate to={'/dashboard'} />
-              )
-            }
-          } />
+          <Route
+            index
+            Component={() => {
+              return <Navigate to={'/dashboard'} />
+            }}
+          />
         </Route>
         <Route element={<PrivateRoute />}>
-          <Route path='/dashboard' element={<Dashboard />}/>
+          <Route path='/dashboard' element={<Dashboard />} />
         </Route>
         <Route element={<PrivateRoute />}>
-          <Route path='/sample-code' element={<SampleCode />}/>
+          <Route path='/sample-code' element={<SampleCode />} />
         </Route>
       </Route>
-      <Route path="*" element={<ErrorPage type='404' />} />
+      <Route path='*' element={<ErrorPage type='404' />} />
     </Routes>
   )
 }

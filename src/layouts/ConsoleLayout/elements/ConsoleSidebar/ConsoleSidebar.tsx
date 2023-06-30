@@ -1,41 +1,35 @@
 import { Link } from 'react-router-dom'
 
 function ConsoleSidebar() {
-  const arr = [
-    'Menu From code 1',
-    'Menu From code 2'
-  ]
+  const arr = ['Menu From code 1', 'Menu From code 2']
   return (
-    <aside className="main-sidebar sidebar-light-primary border-right">
-      <a href="index3.html" className="brand-link text-center">
-        <span className="brand-text font-weight-light">AdminLTE 3</span>
+    <aside className='main-sidebar sidebar-light-primary border-right'>
+      <a href='index3.html' className='brand-link text-center'>
+        <span className='brand-text font-weight-light'>AdminLTE 3</span>
       </a>
-      <div className="sidebar">
-        <nav className="mt-2">
-          <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li className="nav-item">
-              <Link to={'/'} className="nav-link">
-                <p>
-                  Dashboard
-                </p>
+      <div className='sidebar'>
+        <nav className='mt-2'>
+          <ul
+            className='nav nav-pills nav-sidebar flex-column'
+            data-widget='treeview'
+            role='menu'
+            data-accordion='false'
+          >
+            <li className='nav-item'>
+              <Link to={'/'} className='nav-link'>
+                <p>Dashboard</p>
               </Link>
             </li>
-            {
-              arr.map((value, index) => (
-                <li className="nav-item" key={index}>
-                  <Link to={'/'} className="nav-link">
-                    <p>
-                      {value}
-                    </p>
-                  </Link>
-                </li>
-              ))
-            }
-            <li className="nav-item">
-              <Link to={'/sample-code'} className="nav-link">
-                <p>
-                  Sample Code
-                </p>
+            {arr.map((value, index) => (
+              <li className='nav-item' key={index}>
+                <Link to={'/'} className='nav-link'>
+                  <p>{value}</p>
+                </Link>
+              </li>
+            ))}
+            <li className='nav-item'>
+              <Link to={'/sample-code'} className='nav-link'>
+                <p>Sample Code</p>
               </Link>
             </li>
             {/* <li className="nav-item">
@@ -63,7 +57,7 @@ function ConsoleSidebar() {
           </ul>
         </nav>
       </div>
-    </aside >
+    </aside>
   )
 }
 

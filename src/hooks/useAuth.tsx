@@ -9,13 +9,13 @@ export const useAuth = () => {
   const navigate = useNavigate()
   const authAPI = useAuthAPI()
   const authContext = useContext(AuthContext)
-  const login = ({username}: {username: any}) => {
+  const login = ({ username }: { username: any }) => {
     authContext.username = username
     localStorage.setItem('token', uuidv4())
   }
 
   const getToken = () => {
-    return localStorage.getItem('token');
+    return localStorage.getItem('token')
   }
 
   const isLoggedIn = () => {
@@ -28,17 +28,17 @@ export const useAuth = () => {
   }
 
   const getData = async ({ callback }: { callback: App.Callback }): Promise<void> => {
-    const onSuccess = get(callback, 'onSuccess', noop);
-    const onFailure = get(callback, 'onFailure', noop);
-    const onFinish = get(callback, 'onFinish', noop);
-  
+    const onSuccess = get(callback, 'onSuccess', noop)
+    const onFailure = get(callback, 'onFailure', noop)
+    const onFinish = get(callback, 'onFinish', noop)
+
     try {
       const response = await authAPI.getDataTest()
       onSuccess(response)
     } catch (error) {
-      onFailure(error);
+      onFailure(error)
     } finally {
-      onFinish();
+      onFinish()
     }
   }
 

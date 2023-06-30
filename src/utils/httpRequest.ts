@@ -5,7 +5,7 @@ import {
   getUserInfo,
   revokeUser,
   setAccessToken,
-  setRefreshToken,
+  setRefreshToken
 } from './cache/cookies'
 import { shouldRefreshToken } from './token'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
@@ -15,7 +15,7 @@ import axios from 'axios'
 
 const headers: Readonly<Record<string, string | boolean>> = {
   Accept: 'application/json',
-  'Content-Type': 'application/x-www-form-urlencoded',
+  'Content-Type': 'application/x-www-form-urlencoded'
 }
 
 const AxiosRequest = (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
@@ -53,7 +53,7 @@ class HttpRequest {
   init(): AxiosInstance {
     const http = axios.create({
       baseURL: API_URL,
-      headers,
+      headers
     })
 
     http.interceptors.request.use(AxiosRequest, (error) => Promise.reject(error))
@@ -68,27 +68,27 @@ class HttpRequest {
         const status = get(error, 'response.status')
         const errorData = get(error, 'response.data')
         switch (status) {
-          case StatusCode.Unauthorized : {
+          case StatusCode.Unauthorized: {
             const userInfo = getUserInfo()
             if (userInfo) {
               revokeUser()
             }
             break
           }
-          case StatusCode.ValidationFailed :
-          case StatusCode.NotFound :
-          case StatusCode.BadRequest : {
+          case StatusCode.ValidationFailed:
+          case StatusCode.NotFound:
+          case StatusCode.BadRequest: {
             return Promise.reject({ ...errorData, status })
           }
-          case StatusCode.Forbidden :
-          case StatusCode.InternalServerError :
-          case StatusCode.TooManyRequests :
+          case StatusCode.Forbidden:
+          case StatusCode.InternalServerError:
+          case StatusCode.TooManyRequests:
             break
-          default :
+          default:
             break
         }
         return Promise.reject(errorData)
-      },
+      }
     )
 
     this.instance = http
@@ -132,7 +132,7 @@ class HttpRequest {
         onSuccess: (newToken) => {
           this.onRefreshed(newToken)
           this.refreshSubscribers = []
-        },
+        }
       })
     }
     return new Promise((resolve, reject) => {

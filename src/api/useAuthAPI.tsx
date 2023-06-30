@@ -1,4 +1,4 @@
-import { useHttpRequest } from './useHttpRequest';
+import { useHttpRequest } from './useHttpRequest'
 
 export const useAuthAPI = () => {
   const httpRequest = useHttpRequest()

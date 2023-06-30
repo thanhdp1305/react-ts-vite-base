@@ -1,3 +1,3 @@
 export interface AuthContextProps {
-  username: string;
+  username: string
 }

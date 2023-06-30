@@ -5,7 +5,7 @@ import {
   getUserInfo,
   revokeUser,
   setAccessToken,
-  setRefreshToken,
+  setRefreshToken
 } from '../utils/cache/cookies'
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 import { StatusCode } from '../constants/statusCode'
@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router'
 
 const headers: Readonly<Record<string, string | boolean>> = {
   Accept: 'application/json',
-  'Content-Type': 'application/x-www-form-urlencoded',
+  'Content-Type': 'application/x-www-form-urlencoded'
 }
 
 const AxiosRequest = (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
@@ -39,7 +39,6 @@ const ForceLogoutRequest = (config: InternalAxiosRequestConfig): InternalAxiosRe
   return config
 }
 
-
 export const useHttpRequest = () => {
   const navigate = useNavigate()
   let instance: AxiosInstance | null = null
@@ -53,7 +52,7 @@ export const useHttpRequest = () => {
   const initHttp = (): AxiosInstance => {
     const http = axios.create({
       baseURL: API_URL,
-      headers,
+      headers
     })
 
     http.interceptors.request.use(AxiosRequest, (error) => Promise.reject(error))
@@ -71,7 +70,7 @@ export const useHttpRequest = () => {
         const status = get(error, 'response.status')
         const errorData = get(error, 'response.data')
         switch (status) {
-          case StatusCode.Unauthorized : {
+          case StatusCode.Unauthorized: {
             const userInfo = getUserInfo()
             if (userInfo) {
               revokeUser()
@@ -79,20 +78,20 @@ export const useHttpRequest = () => {
             }
             break
           }
-          case StatusCode.ValidationFailed :
-          case StatusCode.NotFound :
-          case StatusCode.BadRequest : {
+          case StatusCode.ValidationFailed:
+          case StatusCode.NotFound:
+          case StatusCode.BadRequest: {
             return Promise.reject({ ...errorData, status })
           }
-          case StatusCode.Forbidden :
-          case StatusCode.InternalServerError :
-          case StatusCode.TooManyRequests :
+          case StatusCode.Forbidden:
+          case StatusCode.InternalServerError:
+          case StatusCode.TooManyRequests:
             break
-          default :
+          default:
             break
         }
         return Promise.reject(errorData)
-      },
+      }
     )
 
     instance = http
@@ -136,7 +135,7 @@ export const useHttpRequest = () => {
         onSuccess: (newToken) => {
           onRefreshed(newToken)
           refreshSubscribers = []
-        },
+        }
       })
     }
     return new Promise((resolve, reject) => {
@@ -186,8 +185,7 @@ export const useHttpRequest = () => {
     return http().delete<T, R>(url, config)
   }
 
-  const refreshToken = async (params: any): Promise<any> =>
-    POST<any, any>('/token', params);
+  const refreshToken = async (params: any): Promise<any> => POST<any, any>('/token', params)
 
   return {
     REQUEST,

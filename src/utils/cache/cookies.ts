@@ -13,7 +13,7 @@ export function getAccessToken(): string {
 
 export function setRefreshToken(token: string): void {
   cookie.set(CacheKey.REFRESH_TOKEN, token, {
-    path: '/',
+    path: '/'
   })
 }
 
@@ -36,7 +36,7 @@ export function isAuthenticated(): boolean {
 
 export function revokeUser(): void {
   const options = {
-    path: '/',
+    path: '/'
   }
   cookie.remove(CacheKey.TOKEN, options)
   cookie.remove(CacheKey.REFRESH_TOKEN, options)

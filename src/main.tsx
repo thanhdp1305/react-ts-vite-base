@@ -12,6 +12,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <AuthProvider>
       <App />
     </AuthProvider>
-  </AppProvider>,
+  </AppProvider>
 )
 registerServiceWorker()
