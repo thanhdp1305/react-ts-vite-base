@@ -6,6 +6,6 @@ declare global {
   }
 
   type AnyObject<T = any> = Record<string, T>
-}
 
-declare let $: any
+  declare let $: any
+}
